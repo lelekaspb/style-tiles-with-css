@@ -1,8 +1,15 @@
 /* change these */
 
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400italic,800italic,400,800");
-/* @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap'); */
-@import url("https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic");
+/* @import url("https://fonts.googleapis.com/css?family=Open+Sans:400italic,800italic,400,800");
+
+@import url("https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic"); */
+
+/* @font-face {
+  font-family: "Noto Sans JP";
+  src: url("../fonts/Noto_Sans_JP/NotoSansJP-Regular.otf");
+} */
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap");
 
 * {
   box-sizing: border-box;
@@ -14,15 +21,16 @@ use the fonts in other ways in the font hierarchy etc. */
 
 /* change these */
 :root {
-  --bg-color: red;
-  --link-color: green;
-  --link-hover-color: blue;
-  --color-4: hotpink;
-  --color-5: rebeccapurple;
+  --bg-color: #000000;
+  --link-color: #cccccc;
+  --link-active-color: #e5e5e5;
+  --link-hover-color: #8c8c8c;
+  --color-4: #2f3960;
+  --color-5: #a31415;
 
-  --primary-font: "Open Sans", sans-serif;
-  --secondary-font: "Droid Serif", serif;
-  --main-text-color: #000;
+  --primary-font: "Noto Sans JP", sans-serif;
+  --secondary-font: "Nunito", sans-serif;
+  --main-text-color: #dcd7d6;
 
   --white-space: 1rem;
 }
@@ -44,7 +52,7 @@ button:active {
 
 a:hover {
   color: var(--link-hover-color);
-  font-size: 4rem;
+  /* font-size: 4rem; */
 }
 html {
   font-size: 100%;
@@ -56,7 +64,7 @@ img {
   height: auto;
 }
 
-header,
+/* header, */
 main,
 footer {
   max-width: 1300px;
@@ -65,9 +73,17 @@ footer {
 }
 
 .full-width {
+  display: flex;
+  justify-content: space-between;
   background: var(--bg-color);
   color: white;
   width: 100%;
+  padding: 1rem;
+}
+
+.full-width img {
+  width: 5rem;
+  height: auto;
 }
 
 .header-wrapper h1 {
@@ -115,56 +131,111 @@ ul {
   justify-content: space-between;
 }
 
+ul.swatchgrid > li {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .swatches li {
   margin-right: 5vw;
   height: 15vw;
   width: 20%;
 }
 
-ul li:last-child {
+.swatches ul li:last-child {
   margin-right: 0;
 }
 
 .color-swatch-1 {
   background-color: var(--bg-color);
+  height: 100%;
 }
 
 .color-swatch-2 {
   background-color: var(--link-color);
+  height: 100%;
 }
 
 .color-swatch-3 {
   background-color: var(--link-hover-color);
+  height: 100%;
 }
 
 .color-swatch-4 {
   background-color: var(--color-4);
+  height: 100%;
 }
 
 .color-swatch-5 {
   background-color: var(--color-5);
+  height: 100%;
+}
+
+.color-swatch-6 {
+  background-color: var(--link-active-color);
+  height: 100%;
+}
+
+.textures .swatchgrid {
+  background-color: var(--bg-color);
+  justify-content: space-evenly;
 }
 
 .textures li {
   height: 30vw;
   width: 40%;
-  margin-right: 5vw;
+  margin: 2vw;
+  box-shadow: 0 3px 4px 3px #404040;
+  border-radius: 10px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.textures li:hover {
+  border-left: 4px solid #a31415;
+  animation-name: hovering;
+  animation-duration: 0.25s;
+  /* box-shadow: 1px 4px 6px #404040, 0 4px 10px #666666; */
+  transform: scale(1.05);
+}
+
+@keyframes hovering {
+  0% {
+    border-left: 1px solid #000000;
+  }
+  25% {
+    border-left: 2px solid #330000;
+  }
+  50% {
+    border-left: 3px solid #4d0000;
+  }
+  100% {
+    border-left: 4px solid #a31415;
+  }
 }
 
 .texture-swatch-1 {
-  background: url(../img/pw_maze_white.png) top left repeat;
+  /* background: url(../img/pw_maze_white.png) top left repeat; */
 }
 
 .texture-swatch-2 {
-  background: url(../img/subtle_grunge.png) top left repeat;
+  /* background: url(../img/subtle_grunge.png) top left repeat; */
 }
 
 .texture-swatch-1 {
-  background: url(../img/pw_maze_white.png) top left repeat;
+  /* background: url(../img/pw_maze_white.png) top left repeat; */
 }
 
 .texture-swatch-3 {
-  background: url(../img/white_paperboard.png) top left repeat;
+  /* background: url(../img/white_paperboard.png) top left repeat; */
+}
+
+section.icons .star {
+  width: 3.5rem;
+}
+
+section.icons img {
+  margin-right: 2rem;
 }
 
 .images ul {
@@ -237,7 +308,7 @@ em {
 a {
   font-family: var(--primary-font);
   color: var(--link-color);
-  font-weight: bold;
+  font-weight: 500;
   text-decoration: none;
   transition: all 0.2s;
 }
@@ -248,6 +319,20 @@ p[class*="font-details-"] {
   font-size: 0.75rem;
   font-family: var(--secondary-font);
   color: #6f6f6f;
+}
+
+span.swatch-hex {
+  font-size: 0.75rem;
+  font-family: var(--secondary-font);
+  color: #6f6f6f;
+  text-align: center;
+  line-height: 1.1rem;
+}
+
+.movie-title {
+  letter-spacing: 0.05rem;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
 .adjectives ul {
