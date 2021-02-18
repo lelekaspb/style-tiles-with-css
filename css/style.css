@@ -186,7 +186,8 @@ ul.swatchgrid > li {
   height: 30vw;
   width: 40%;
   margin: 2vw;
-  box-shadow: 0 3px 4px 3px #404040;
+  box-shadow: 0 2px 4px 1px #ffd9b3;
+  /* #404040; */
   border-radius: 10px;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
